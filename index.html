@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo App</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form action="{{ url_for('add_todo') }}" method="post">
+        <input type="text" name="task" placeholder="Tulis tugas…" />
+        <button type="submit">Tambah</button>
+    </form>
+    <ul>
+    {% for idx, task in enumerate(todos) %}
+        <li>{{ task }} <a href="{{ url_for('delete_todo', index=idx) }}">[Hapus]</a></li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
